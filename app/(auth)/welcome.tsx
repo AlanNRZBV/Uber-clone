@@ -4,10 +4,13 @@ import { router } from "expo-router";
 import { useRef, useState } from "react";
 import Swiper from "react-native-swiper";
 import { onboarding } from "@/constants";
+import CustomButton from "@/components/CustomButton";
 
 const Welcome = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<Swiper>(null);
+
+  const isLastSlide = activeIndex === onboarding.length - 1;
 
   return (
     <SafeAreaView className="flex h-full items-center justify-between bg-white">
@@ -48,6 +51,15 @@ const Welcome = () => {
           </View>
         ))}
       </Swiper>
+      <CustomButton
+        title={isLastSlide ? "Get Started" : "Next"}
+        onPress={() =>
+          isLastSlide
+            ? router.replace("/(auth)/sign-up")
+            : swiperRef.current?.scrollBy(1)
+        }
+        className="w-11/12 mt-10"
+      />
     </SafeAreaView>
   );
 };
