@@ -1,7 +1,7 @@
 import { Image, ScrollView, Text, View } from "react-native";
 import { icons, images } from "@/constants";
 import InputField from "@/components/InputField";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import CustomButton from "@/components/CustomButton";
 import { Link, useRouter } from "expo-router";
 import OAuth from "@/components/OAuth";
@@ -19,7 +19,7 @@ const SignIn = () => {
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const onSignInPress = React.useCallback(async () => {
+  const onSignInPress = useCallback(async () => {
     if (!isLoaded) {
       return;
     }
@@ -39,7 +39,7 @@ const SignIn = () => {
     } catch (err: any) {
       console.error(JSON.stringify(err, null, 2));
     }
-  }, [isLoaded, form.email, form.password]);
+  }, [isLoaded, signIn, form.email, form.password, setActive, router]);
   return (
     <ScrollView className="flex-1 bg-white">
       <View className="flex-1 bg-white">
