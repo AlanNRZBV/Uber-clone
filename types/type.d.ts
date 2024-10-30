@@ -14,7 +14,7 @@ declare interface Driver {
 declare interface MarkerData {
   latitude: number;
   longitude: number;
-  driver_id: number;
+  id: number;
   title: string;
   profile_image_url: string;
   car_image_url: string;

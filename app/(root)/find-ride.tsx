@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { useLocationStore } from "@/store";
 import RideLayout from "@/components/RideLayout";
 import GoogleTextInput from "@/components/GoogleTextInput";
@@ -14,7 +14,7 @@ const FindRide = () => {
     setDestinationLocation,
   } = useLocationStore();
   return (
-    <RideLayout title="Ride" snapPoints={["85%"]}>
+    <RideLayout title="Ride" snapPoints={["55"]}>
       <View className="my-3">
         <Text className="text-lg font-JakartaSemiBold mb-3">From</Text>
         <GoogleTextInput

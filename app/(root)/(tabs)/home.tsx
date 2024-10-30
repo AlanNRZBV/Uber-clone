@@ -131,6 +131,7 @@ const recentRides = [
 const Home = () => {
   const { setUserLocation, setDestinationLocation } = useLocationStore();
   const [hasPermissions, setHasPermissions] = useState(false);
+
   useEffect(() => {
     const requestLocation = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -152,6 +153,7 @@ const Home = () => {
     };
     requestLocation();
   }, []);
+
   const { user } = useUser();
   const loading = false;
   const handleSignOut = () => {};

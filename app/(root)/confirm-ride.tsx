@@ -4,6 +4,7 @@ import DriverCard from "@/components/DriverCard";
 import CustomButton from "@/components/CustomButton";
 import { router } from "expo-router";
 import { useDriverStore } from "@/store";
+
 const ConfirmRide = () => {
   const { drivers, selectedDriver, setSelectedDriver } = useDriverStore();
 
@@ -15,7 +16,7 @@ const ConfirmRide = () => {
           <DriverCard
             item={item}
             selected={selectedDriver!}
-            setSelected={() => setSelectedDriver(item.driver_id)}
+            setSelected={() => setSelectedDriver(item.id)}
           />
         )}
         ListFooterComponent={() => (
