@@ -51,11 +51,7 @@ const Payment = ({
           amount: parseInt(amount) * 100,
           currencyCode: "usd",
         },
-        confirmHandler: async (
-          paymentMethod,
-          shouldSavePaymentMethod,
-          intentCreationCallback,
-        ) => {
+        confirmHandler: async (paymentMethod, _, intentCreationCallback) => {
           const { paymentIntent, customer } = await fetchAPI(
             "/(api)/(stripe)/create",
             {
